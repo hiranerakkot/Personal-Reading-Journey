@@ -21,15 +21,15 @@ button { cursor: pointer; }
 .result-info { min-width: 0; }
 .result-title { margin: 2px 0 6px; font-size: 16px; }
 .muted { color: #aaa; font-size: 12px; }
-.result-desc { color: #c6c6c6; font-size: 12px; line-height: 1.5; margin: 9px 0; max-width: 650px; }
-.actions { display: flex; flex-wrap: wrap; gap: 7px; }
+.actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 9px; }
 .action { border: 1px solid #666; background: transparent; color: #eee; border-radius: 5px; padding: 6px 9px; font-size: 11px; }
-.action:hover, .action.active { background: #eee; color: #222; }
+.action:hover { background: #eee; color: #222; }
 .section { margin-top: 22px; }
 .section-title { font-size: 9px; color: #ddd; margin-bottom: 8px; }
 .section-title::after { content: ' ›'; }
 .book-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
 .book-card { min-width: 0; }
+.cover-button { width: 100%; padding: 0; border: 0; background: none; display: block; }
 .cover { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #d8d8d8; display: block; }
 .book-title { margin-top: 7px; font-size: 11px; line-height: 1.3; color: #eee; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .card-actions { display: flex; gap: 4px; margin-top: 5px; }
@@ -45,6 +45,12 @@ button { cursor: pointer; }
 .login-switch { text-align: center; font-size: 11px; color: #999; margin-top: 18px; }
 .link-btn { border: 0; background: none; color: #eee; padding: 0; }
 .error { color: #ff9d9d; font-size: 11px; margin: 10px 0; }
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.72); display: grid; place-items: center; padding: 20px; z-index: 20; }
+.modal { position: relative; width: min(700px, 100%); max-height: 85vh; overflow: auto; display: grid; grid-template-columns: 190px 1fr; gap: 26px; padding: 28px; background: #292929; border-radius: 8px; }
+.modal h2 { font-size: 21px; font-weight: 400; margin: 4px 0 8px; }
+.modal p { color: #ccc; font-size: 13px; line-height: 1.65; }
+.detail-cover { width: 190px; aspect-ratio: 2 / 3; object-fit: cover; background: #ddd; }
+.modal-close { position: absolute; right: 12px; top: 7px; border: 0; background: none; color: #ddd; font-size: 25px; }
 @media (max-width: 800px) {
   .shell { width: calc(100% - 30px); padding-top: 14px; }
   .stats { margin: 24px 0 25px; }
@@ -53,10 +59,11 @@ button { cursor: pointer; }
   .search-wrap { margin-bottom: 25px; }
   .search { height: 36px; font-size: 10px; }
   .book-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
-  .cover { aspect-ratio: 2 / 3; }
   .book-title { font-size: 9px; }
   .section { margin-top: 18px; }
   .result { gap: 12px; }
   .result-cover { width: 55px; height: 80px; }
-  .result-desc { display: none; }
+  .modal { grid-template-columns: 100px 1fr; gap: 15px; padding: 20px; }
+  .detail-cover { width: 100px; }
+  .modal h2 { font-size: 16px; }
 }
